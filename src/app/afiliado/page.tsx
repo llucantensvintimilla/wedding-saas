@@ -1,5 +1,3 @@
-"use client";
-
 import { createClient } from "@/lib/supabase/server";
 import { signOutAfiliado } from "./actions";
 import { motion } from "framer-motion";

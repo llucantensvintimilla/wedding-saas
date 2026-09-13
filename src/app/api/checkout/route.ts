@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { stripe } from '@/lib/stripe';
+import { getStripe } from '@/lib/stripe';
 import { createClient } from '@/lib/supabase/server';
 import { cookies } from 'next/headers';
 import { REFERRAL_COOKIE_NAME } from '@/lib/referrals';
@@ -8,6 +8,7 @@ export async function POST(req: Request) {
   try {
     const { userId } = await req.json();
     const supabase = await createClient();
+    const stripe = getStripe();
 
     // Verify user is authenticated
     const { data: { user }, error: authError } = await supabase.auth.getUser();
