@@ -57,7 +57,7 @@ export default async function StudioDashboard() {
           <div className="h-[2px] w-full bg-black/5 rounded-full overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
-              animate={{ width: guestsCount ? `${(rsvpCount / guestsCount) * 100}%` : '0%' }}
+              animate={{ width: guestsCount ? `${((rsvpCount ?? 0) / guestsCount) * 100}%` : '0%' }}
               transition={{ duration: 1.5, ease: "easeOut" }}
               className="h-full bg-gold"
               style={{ backgroundColor: "#b08d57" }}
