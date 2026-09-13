@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import { EtiquetaSeccion, Ornamento } from "@/components/wedding/Ornamento";
 import { FadeIn } from "@/components/FadeIn";
 import { FormularioInteres } from "@/components/marketing/FormularioInteres";
@@ -53,6 +54,14 @@ const PROCESS = [
 ];
 
 export default function LandingPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center">Loading...</div>}>
+      <LandingPageContent />
+    </Suspense>
+  );
+}
+
+function LandingPageContent() {
   const searchParams = useSearchParams();
   const ref = searchParams.get("ref");
   const enlaceCrear = ref ? `/crear?ref=${encodeURIComponent(ref)}` : "/crear";
