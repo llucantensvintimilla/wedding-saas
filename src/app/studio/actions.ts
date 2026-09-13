@@ -38,8 +38,6 @@ export async function updateWeddingContent(bodaId: string, updates: any) {
 
   revalidatePath(`/${(await supabase.from("bodas").select("slug").eq("id", bodaId).single()).data?.slug}`);
   revalidatePath("/studio/editar");
-
-  return { success: true };
 }
 
 /**
@@ -74,7 +72,6 @@ export async function moderatePhoto(photoId: string, status: "aprobada" | "ocult
   if (error) throw error;
 
   revalidatePath("/studio/galeria");
-  return { success: true };
 }
 
 /**
@@ -109,7 +106,6 @@ export async function deleteGuestPhoto(photoId: string) {
   if (error) throw error;
 
   revalidatePath("/studio/galeria");
-  return { success: true };
 }
 
 /**
@@ -155,7 +151,6 @@ export async function uploadOfficialPhoto(bodaId: string, formData: FormData) {
   if (dbError) throw dbError;
 
   revalidatePath("/studio/galeria");
-  return { success: true };
 }
 
 /**
@@ -189,7 +184,6 @@ export async function deleteOfficialPhoto(photoId: string) {
   if (error) throw error;
 
   revalidatePath("/studio/galeria");
-  return { success: true };
 }
 
 /**
@@ -223,7 +217,6 @@ export async function moderateMessage(messageId: string, status: "aprobado" | "o
   if (error) throw error;
 
   revalidatePath("/studio/mensajes");
-  return { success: true };
 }
 
 /**
@@ -257,7 +250,6 @@ export async function deleteMessage(messageId: string) {
   if (error) throw error;
 
   revalidatePath("/studio/mensajes");
-  return { success: true };
 }
 
 /**
@@ -291,7 +283,6 @@ export async function addGuest(bodaId: string, formData: FormData) {
   if (error) throw error;
 
   revalidatePath("/studio/invitados");
-  return { success: true };
 }
 
 /**
@@ -321,5 +312,4 @@ export async function removeGuest(bodaId: string, guestId: string) {
   if (error) throw error;
 
   revalidatePath("/studio/invitados");
-  return { success: true };
 }
