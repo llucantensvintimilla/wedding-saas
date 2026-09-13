@@ -11,8 +11,6 @@ export async function POST(req: NextRequest) {
 
   let event;
 
-  let event;
-
   try {
     event = stripe.webhooks.constructEvent(
       body,
