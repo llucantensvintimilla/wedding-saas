@@ -164,8 +164,8 @@ export async function crearBodaDesdeAsistente(formData: FormData) {
         wedding_id: boda.id,
         email: email,
       },
-      success_url: `${process.env.NEXT_PUBLIC_APP_URL}/crear/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.NEXT_PUBLIC_APP_URL}/crear`,
+      success_url: `${process.env.NEXT_PUBLIC_SITE_URL}/crear/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.NEXT_PUBLIC_SITE_URL}/crear`,
     });
 
     return { ok: true as const, url: session.url };
