@@ -144,7 +144,6 @@ export async function crearBodaDesdeAsistente(formData: FormData) {
   // 5. Sesión de Stripe
   try {
     const session = await getStripe().checkout.sessions.create({
-      payment_method_types: ["card"],
       line_items: [
         {
           price_data: {
