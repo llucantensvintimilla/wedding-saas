@@ -171,6 +171,6 @@ export async function crearBodaDesdeAsistente(formData: FormData) {
     return { ok: true as const, url: session.url };
   } catch (e: any) {
     console.error("Stripe session error:", e);
-    return { ok: false as const, error: "Error al procesar la pasarela de pago." };
+    return { ok: false as const, error: `Stripe Error: ${e.message || "Unknown error"}` };
   }
 }
